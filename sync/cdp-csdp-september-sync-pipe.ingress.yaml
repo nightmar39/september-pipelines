@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cdp-csdp-september-sync-pipe
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /webhooks/csdp-september/submodule
+            backend:
+              service:
+                name: submodule-eventsource-svc
+                port:
+                  number: 80
+            pathType: Prefix
+      host: rozario-demo.sa.cf-cd.com
