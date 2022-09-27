@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: cdp-csdp-september-ecc-pipe
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /webhooks/csdp-september/nginx
+            backend:
+              service:
+                name: nginx-eventsource-svc
+                port:
+                  number: 80
+            pathType: Prefix
+      host: rozario-demo.sa.cf-cd.com

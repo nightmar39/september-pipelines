@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: WorkflowTemplate
+metadata: 
+  name: deploy-nginx
+spec:
+  entrypoint: deploy
+  volumes:
+    - name: ssh-secret
+      secret:
+        secretName: ssh-key-secret
+        defaultMode: 256
+        items: 
+          - key: my-keypair
+            path: my-keypair
+            mode: 256
+  templates:
+    - name: deploy
+      steps: 
+       - - name: hello-world
+           templateRef:
+             name: deploy-nginx-ec2
+             template: deploy-nginx
+      

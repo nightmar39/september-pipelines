@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: nginx
+spec:
+  eventBusName: codefresh-eventbus
+  service:
+    ports:
+      - port: 80
+  template:
+    serviceAccountName: argo-server
+  github:
+    github-4d4cd7ea-3fcd-40e5-adac-a30dd6a4440a:
+      events:
+        - push
+      repositories:
+        - owner: nightmar39
+          names:
+            - ec2-deploy
+      webhook:
+        port: '80'
+        method: POST
+        endpoint: >-
+          /webhooks/csdp-september/nginx/github-4d4cd7ea-3fcd-40e5-adac-a30dd6a4440a
+        url: https://rozario-demo.sa.cf-cd.com
+      active: true
+      insecure: false
+      contentType: json
+      deleteHookOnFinish: true
+      apiToken:
+        name: autopilot-secret
+        key: git_token
