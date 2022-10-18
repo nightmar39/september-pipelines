@@ -7,8 +7,8 @@ spec:
     serviceAccountName: argo-server
   eventBusName: codefresh-eventbus
   dependencies:
-    - name: github-79849d57-bd41-41dd-9769-c17935e58a33
-      eventName: github-79849d57-bd41-41dd-9769-c17935e58a33
+    - name: github-b1061d30-4dd3-439d-a78c-c70d88033424
+      eventName: github-b1061d30-4dd3-439d-a78c-c70d88033424
       eventSourceName: flask
       filters:
         data:
@@ -24,7 +24,7 @@ spec:
   triggers:
     - template:
         name: ci
-        conditions: github-79849d57-bd41-41dd-9769-c17935e58a33
+        conditions: github-b1061d30-4dd3-439d-a78c-c70d88033424
         argoWorkflow:
           operation: submit
           source:
@@ -59,49 +59,49 @@ spec:
                     - name: DOCKER_CONFIG_SECRET
                       value: ''
                 workflowTemplateRef:
-                  name: flask-ci-template
+                  name: flask-config
           parameters:
             - dest: spec.arguments.parameters.0.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: '{{ .Input.body.repository.clone_url }}'
             - dest: spec.arguments.parameters.1.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: flask-demo
             - dest: spec.arguments.parameters.2.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: demo-capsule
             - dest: spec.arguments.parameters.3.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: '{{ .Input.body.after }}'
             - dest: spec.arguments.parameters.4.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: '{{ trimPrefix "refs/heads/" .Input.body.ref }}'
             - dest: spec.arguments.parameters.5.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: '{{ .Input.body.head_commit.url }}'
             - dest: spec.arguments.parameters.6.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: '{{ .Input.body.head_commit.message }}'
             - dest: spec.arguments.parameters.7.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: buildv1
             - dest: spec.arguments.parameters.8.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: github-token
             - dest: spec.arguments.parameters.9.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: docker
             - dest: spec.arguments.parameters.10.value
               src:
-                dependencyName: github-79849d57-bd41-41dd-9769-c17935e58a33
+                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
                 dataTemplate: docker
