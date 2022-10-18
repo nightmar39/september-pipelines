@@ -109,9 +109,9 @@ spec:
                   value: '{{ inputs.parameters.GIT_COMMIT_URL }}'
                 - name: GIT_COMMIT_MESSAGE
                   value: '{{ inputs.parameters.GIT_COMMIT_MESSAGE }}'
-                - name: USERNAME
+                - name: DOCKERHUB_USERNAME
                   value: '{{ inputs.parameters.REGISTRY_CREDS_SECRET }}'
-                - name: PASSWORD
+                - name: DOCKERHUB_PASSWORD 
                   value: '{{ inputs.parameters.REGISTRY_CREDS_SECRET }}'
                 - name: DOMAIN
                   value: '{{ inputs.parameters.REGISTRY_CREDS_SECRET }}'
