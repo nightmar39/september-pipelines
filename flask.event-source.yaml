@@ -1,0 +1,32 @@
+apiVersion: argoproj.io/v1alpha1
+kind: EventSource
+metadata:
+  name: flask
+spec:
+  eventBusName: codefresh-eventbus
+  service:
+    ports:
+      - port: 80
+  template:
+    serviceAccountName: argo-server
+  github:
+    github-79849d57-bd41-41dd-9769-c17935e58a33:
+      events:
+        - push
+      repositories:
+        - owner: nightmar39
+          names:
+            - flask-bg-app
+      webhook:
+        port: '80'
+        method: POST
+        endpoint: >-
+          /webhooks/csdp-september/flask/github-79849d57-bd41-41dd-9769-c17935e58a33
+        url: https://rozario-demo.sa.cf-cd.com
+      active: true
+      insecure: false
+      contentType: json
+      deleteHookOnFinish: true
+      apiToken:
+        name: autopilot-secret
+        key: git_token
