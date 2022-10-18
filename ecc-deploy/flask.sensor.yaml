@@ -68,7 +68,7 @@ spec:
             - dest: spec.arguments.parameters.1.value
               src:
                 dependencyName: github-7c6dc432-751c-4964-bb05-1b653b474c3c
-                dataTemplate: flask
+                dataTemplate: nightmar39/flask-bg-app
             - dest: spec.arguments.parameters.2.value
               src:
                 dependencyName: github-7c6dc432-751c-4964-bb05-1b653b474c3c
