@@ -92,7 +92,7 @@ spec:
             - dest: spec.arguments.parameters.7.value
               src:
                 dependencyName: github-7c6dc432-751c-4964-bb05-1b653b474c3c
-                dataTemplate: buildv1
+                dataTemplate: build_v1
             - dest: spec.arguments.parameters.8.value
               src:
                 dependencyName: github-7c6dc432-751c-4964-bb05-1b653b474c3c
