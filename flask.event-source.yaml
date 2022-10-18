@@ -10,7 +10,7 @@ spec:
   template:
     serviceAccountName: argo-server
   github:
-    github-b1061d30-4dd3-439d-a78c-c70d88033424:
+    github-17d8776c-1a4f-4689-b457-874396914f88:
       events:
         - push
       repositories:
@@ -21,7 +21,7 @@ spec:
         port: '80'
         method: POST
         endpoint: >-
-          /webhooks/csdp-september/flask/github-b1061d30-4dd3-439d-a78c-c70d88033424
+          /webhooks/csdp-september/flask/github-17d8776c-1a4f-4689-b457-874396914f88
         url: https://rozario-demo.sa.cf-cd.com
       active: true
       insecure: false

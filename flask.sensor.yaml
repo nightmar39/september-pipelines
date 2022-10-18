@@ -7,8 +7,8 @@ spec:
     serviceAccountName: argo-server
   eventBusName: codefresh-eventbus
   dependencies:
-    - name: github-b1061d30-4dd3-439d-a78c-c70d88033424
-      eventName: github-b1061d30-4dd3-439d-a78c-c70d88033424
+    - name: github-17d8776c-1a4f-4689-b457-874396914f88
+      eventName: github-17d8776c-1a4f-4689-b457-874396914f88
       eventSourceName: flask
       filters:
         data:
@@ -24,7 +24,7 @@ spec:
   triggers:
     - template:
         name: ci
-        conditions: github-b1061d30-4dd3-439d-a78c-c70d88033424
+        conditions: github-17d8776c-1a4f-4689-b457-874396914f88
         argoWorkflow:
           operation: submit
           source:
@@ -59,49 +59,49 @@ spec:
                     - name: DOCKER_CONFIG_SECRET
                       value: ''
                 workflowTemplateRef:
-                  name: flask-config
+                  name: flask-ci-1
           parameters:
             - dest: spec.arguments.parameters.0.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
                 dataTemplate: '{{ .Input.body.repository.clone_url }}'
             - dest: spec.arguments.parameters.1.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
-                dataTemplate: flask-demo
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
+                dataTemplate: flask
             - dest: spec.arguments.parameters.2.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
-                dataTemplate: demo-capsule
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
+                dataTemplate: demo
             - dest: spec.arguments.parameters.3.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
                 dataTemplate: '{{ .Input.body.after }}'
             - dest: spec.arguments.parameters.4.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
                 dataTemplate: '{{ trimPrefix "refs/heads/" .Input.body.ref }}'
             - dest: spec.arguments.parameters.5.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
                 dataTemplate: '{{ .Input.body.head_commit.url }}'
             - dest: spec.arguments.parameters.6.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
                 dataTemplate: '{{ .Input.body.head_commit.message }}'
             - dest: spec.arguments.parameters.7.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
                 dataTemplate: buildv1
             - dest: spec.arguments.parameters.8.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
-                dataTemplate: github-token
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
+                dataTemplate: git-token
             - dest: spec.arguments.parameters.9.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
                 dataTemplate: docker
             - dest: spec.arguments.parameters.10.value
               src:
-                dependencyName: github-b1061d30-4dd3-439d-a78c-c70d88033424
+                dependencyName: github-17d8776c-1a4f-4689-b457-874396914f88
                 dataTemplate: docker
