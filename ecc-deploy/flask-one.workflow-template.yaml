@@ -119,14 +119,23 @@ spec:
             arguments: 
                 parameters:
                     - name: NEW_IMAGE
+                      value: '{{ inputs.parameters.IMAGE_NAME }}'
                     - name: NEW_TAG
+                      value: '{{ inputs.parameters.IMAGE_TAG }}'
                     - name: GIT_USER
+                      value: nightmar39
                     - name: DEPLOYMENT_FILE
+                      value: k8s/rollout.yaml
                     - name: CONTAINER_NAME
+                      value: flask-simple
                     - name: COMMITER_EMAIL
+                      value: anthonyzilla94@gmail.com
                     - name: BRANCH
+                      value: '{{ inputs.parameters.GIT_BRANCH }}'
                     - name: REPO_OWNER
+                      value: nightmar39
                     - name: REPO_NAME
+                      value: flask-bg-app
 
     # Test template
     - name: test
