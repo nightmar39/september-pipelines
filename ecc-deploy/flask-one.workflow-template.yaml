@@ -116,6 +116,17 @@ spec:
             templateRef:
                 name: update-deploy-tag
                 template: update-tag
+            arguments: 
+                parameters:
+                    - name: NEW_IMAGE
+                    - name: NEW_TAG
+                    - name: GIT_USER
+                    - name: DEPLOYMENT_FILE
+                    - name: CONTAINER_NAME
+                    - name: COMMITER_EMAIL
+                    - name: BRANCH
+                    - name: REPO_OWNER
+                    - name: REPO_NAME
 
     # Test template
     - name: test
