@@ -136,6 +136,7 @@ spec:
                       value: nightmar39
                     - name: REPO_NAME
                       value: flask-bg-app
+            depends: report-image-info
 
     # Test template
     - name: test
